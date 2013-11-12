@@ -14,7 +14,8 @@
 <link rel="stylesheet" type="text/css" href="main.css" />
 
 <script type="text/javascript" src="jquery.js"></script> 
-<script type="text/javascript" src="main.js"></script>          
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="range.js"></script>
  <script type="text/javascript">                                         
    // we will add our javascript code here                                     
  </script>   
@@ -23,205 +24,275 @@
 
 <form id="main_form">
 
+<div id="wrapper">
 
-<div class="mform" style="float:left; width:250px;">
+<div id="row1">
+
+<div id="row1_col1">IrriCalculator</div>
+<div id="row1_col2" class="act layout_opt">Layout Design</div>
+<div id="row1_col3" class="layout_opt">Layout Specs</div>
+
+</div>
 
 
 
-<fieldset>
-<legend>Layout</legend>
-<ol>
-<li>
-<label for=name>Number of Heads</label>
-<input type="text"  value="3" name="number_heads" />
-</li>
-<li>
-<label for=email>Heads Spacing</label>
-<input type="text"  value="30" name="spacing_heads" /><i id="spacing_heads_units"></i>
-</li>
-<li>
-<label for=phone>Number of Rows</label>
-<input type="text"  value="3" name="number_rows" />
-</li>
-<li>
-<label for=phone>Rows Spacing</label>
-<input type="text"  value="30" name="spacing_rows" /><i id="spacing_rows_units"></i>
-</li>
-</ol>
-</fieldset>
 
-<fieldset>
-<legend>Pipes</legend>
-<ol>
-<li>
-<label for=name>Manifolds ID</label>
-<input type="text"  value="40" name="manifold_pipes" /><i id="manifold_pipes_units"></i>
-</li>
-<li>
-<label for=email>Manifolds HW</label>
-<input type="text"  value="110" name="manifold_hazen" />
-</li>
-<li>
-<label for=phone>Laterals ID</label>
-<input type="text"  value="20" name="lateral_pipes" /><i id="lateral_pipes_units"></i>
-</li>
 
-<li>
-<label for=phone>Laterals HW</label>
-<input type="text"  value="145" name="lateral_hazen" />
-</li>
-</ol>
-</fieldset>
 
-<fieldset>
 
-<legend>Other</legend>
-<ol>
-<li>
-<label for=name>Valve Pressure </label>
-<input type="text"  value="30" name="valve_pressure" /><i id="valve_pressure_units"></i>
-</li>
-<li>
-<label for=email>Sprinkler Flow</label>
-<input type="text"  value=".22" name="sprinkler_flow" /><i id="sprinkler_flow_units"></i>
-</li>
+<div id="row2">
 
-</ol>
-</fieldset>
+	<div id="row2_col1">
+
+        <div class="mbox">
+
+		<div class="row_header">Layout</div>
+		<div id="row2_col1_a">	
+
+
+			<label id="spacing_heads_units" for=name style="margin:5px 5px 0 0; width:80px; padding:0px;">Head Space</label>
+			<input type="range" min="5" max="100" step="5" style="width:50px; margin-right:10px; " value="20" name="spacing_heads" />
+
+			<label for=name style="margin:5px 5px 0 0; width:60px; padding:0px;"># of Heads</label>
+			<input name="number_heads" type="range" min="1" max="10" step="1"	style="width:50px; "  value="6" >
+
+
+		</div>
+
+		<div id="row2_col1_b">	
+
+			<label id="spacing_rows_units" for=name style="margin:5px 5px 0 0; width:80px; padding:0px;">Row Space</label>
+			<input type="range" min="5" max="100" step="5" style="width:50px; margin-right:10px;" value="20" name="spacing_rows" />
+
+
+			<label for=name style="margin:5px 5px 0 0; width:60px; padding:0px;"># of Rows</label>
+			<input type="range" min="1" max="10" step="1" style="width:50px;" value="6" name="number_rows" />
+
+		</div>
+
+		</div>
+
+	</div>
+
+
+	<div id="row2_col2">
+
+	<div class="mbox">
+
+
+	   <div class="row_header">Pipes</div>
+
+	<div id="row2_row_a">	
+
+
+<label style="width:80px;" for=phone>Laterals HW  </label>
+<input type="text"  style="margin-right: 10px;"  value="145" name="lateral_hazen" />
+
+
+<label style="width:95px;" id="lateral_pipes_units" for=phone>Laterals ID</label>
+<input type="text"  value="20" name="lateral_pipes" />
+
+</div>
+
+
+
+	<div id="row2_row_b">	
+<label style="width:80px;" for=email>Manifolds HW</label>
+<input type="text" style="margin-right: 10px;" value="110" name="manifold_hazen" />
+
+
+<label style="width:95px;" id="manifold_pipes_units" for=name>Manifolds ID</label>
+<input type="text"  value="40" name="manifold_pipes" />
+
+
+</div>
+
+
+	</div>
+
+	</div>
+
+
+
+	<div id="row2_col3">
+	<div class="row_header">Other</div>
+<div id="row2_row_a">
+<label  id="valve_pressure_units" for=name>Valve Pressure </label>
+<input type="text"  value="30" name="valve_pressure" />
+</div>
+
+<div id="row2_row_b">
+
+<label id="sprinkler_flow_units" for=email>Sprinkler Flow</label>
+<input  type="text"  value=".22" name="sprinkler_flow" />
+</div>
+
+	</div>
+
+</div>
+
+
+
+<div id="row3">
+	
+
+<div id="row3_col1">
+
+<div class="mbox">
+<div class="row_header">Type of System</div>
+
+<div class="tc">
+
+
+<input type="radio" name="group_type" checked id="ss"  value="solidset"/>
+<label for="ss"><span></span>Solid Set</label>
 
 
 
 
 </div>
 
-<div style="float:left; width:800px;">
 
-<div id="results_header_div">
-
-<div id="results_header">
-<div>   </div><div> <b>Max Flow</b></div><div> <b>Max Velocity</b></div><div> <b>Valve Pressure</b></div><div> <b>Min Pressure</b></div>
-</div>
-<div id="results_header">
-<div> Manifold  </div><div id="man_max_flow">-------  </div><div id="man_max_vel">-------  </div><div id="man_valve_press">-------  </div><div id="man_min_press">  </div>
-</div>
-<div id="results_header">
-<div> Laterals  </div><div id="lat_max_flow">-------  </div><div id="lat_max_vel">-------  </div><div id="lat_valve_press">  </div><div id="lat_min_press">-------  </div>
+<div class="tc">
+<input type="radio" id="dr"  name="group_type" value="drip"/>
+<label for="dr"><span></span>Micro Drip</label>
 </div>
 
 </div>
-
-
-<canvas id="canvas" width="800" height="550" style="float:left; background:#ggg; border:0px dashed #ccc; margin:0px;"></canvas>
-
 </div>
 
+<div id="row3_col2">
+<div class="mbox">
+<div class="row_header">Manifold</div>
 
+<div class="tcc">
+<input type="radio" id="mside" name="group_man" checked  value="side"/>
+<label for="mside"><span></span>Side</label>
+</div>
 
-<div style="float:left; width:200px;" class="mform">
+<div class="tcc">
+<input type="radio" id="mmid" name="group_man" disabledk  value="middle"/>
+<label for="mmid"><span></span>Middle</label>
+</div>
 
+</div>
+</div>
 
-<fieldset>
-<legend>Design Layout</legend>
-<ol>
-<li>
-<fieldset>
-<legend>Manifold</legend>
-<ol>
-<li>
-<input type="radio"  name="group_man" checked  value="side"/>
-<label for=visa>Side</label>
-</li>
-<li>
-<input type="radio"  name="group_man" disabledk  value="middle"/>
-<label for=amex>Middle</label>
-</li>
-</ol>
-</fieldset>
-</li>
+<div id="row3_col3">
+<div class="mbox">
 
-<li>
-<fieldset>
-<legend>Valve</legend>
-<ol>
-<li>
-<input type="radio"  name="group_val" checked  value="side"/>
-<label for=visa>Side</label>
-</li>
-<li>
-<input type="radio"  name="group_val"  disabledk value="middle"/>
-<label for=amex>Middle</label>
-</li>
-</ol>
-</fieldset>
-</li>
-
-</ol>
-</fieldset>
-
-<fieldset>
-<legend>Display</legend>
-<ol>
-
-<li>
-<fieldset>
-<legend>Labels</legend>
-<ol>
-<li>
-<input type="radio"  name="group_tags"   value="none"/>
-<label for=visa>None</label>
-</li>
-<li>
-<input type="radio"  name="group_tags"  checked value="flow"/>
-<label for=amex>Flow</label>
-</li>
-
-<li>
-<input type="radio"  name="group_tags"   value="vel"/>
-<label for=visa>Velocity</label>
-</li>
-<li>
-<input type="radio"  name="group_tags"   value="pres"/>
-<label for=amex>Pressure</label>
-</li>
-</ol>
-</fieldset>
-</li>
-
-</ol>
-</fieldset>
-
-<fieldset>
-<legend>Units</legend>
-<ol>
-
-<li>
-<fieldset>
-<ol>
-<li>
-<input type="radio"  name="group_units"   value="english"/>
-<label for=visa>English</label>
-</li>
-<li>
-<input type="radio"  name="group_units"   value="metric_lh"/>
-<label for=amex>Metric (L / h)</label>
-</li>
-
-<li>
-<input type="radio"  name="group_units" checked  value="metric_ls"/>
-<label for=amex>Metric (L / s)</label>
-</li>
-
-</ol>
-</fieldset>
-
-</li>
-
-</ol>
-</fieldset>
+<div class="row_header">Valve</div>
+<div class="tcc">
+<input type="radio" id="vside" name="group_val" checked  value="side"/>
+<label for="vside"><span></span>Side</label>
 
 
 </div>
 
+<div class="tcc">
+<input type="radio" id="vmid" name="group_val"  disabledk value="middle"/>
+<label for="vmid"><span></span>Middle</label>
+</div>
+
+</div>
+</div>
+
+
+<div id="row3_col4">
+<div class="mbox">
+
+<div class="row_header">Display</div>
+<div class="tccc">
+<input type="radio" id="dn"  name="group_tags"   value="none"/>
+<label for="dn"><span></span>None</label>
+</div>
+
+<div class="tccc">
+<input type="radio" id="df"  name="group_tags"  checked value="flow"/>
+<label for="df"><span></span>Flow</label>
+</div>
+
+<div class="tccc">
+<input type="radio" id="dv"  name="group_tags"   value="vel"/>
+<label for="dv"><span></span>Velocity</label>
+</div>
+
+<div class="tccc">
+<input type="radio" id="dp" name="group_tags"   value="pres"/>
+<label for="dp"><span></span>Pressure</label>
+</div>
+
+</div>
+</div>
+
+
+<div id="row3_col5">
+
+<div class="row_header">Units</div>
+<div id="row3_row_a">
+
+
+<input type="radio" class="english_gh_rb" name="group_units" style="display:block; float:left;"  value="english_gh"/>
+<label class="english_gh_rb" style="display:block; width:70px; float:left;"  for=visa>English (G / h)</label>
+
+
+
+<input class="english_gm_rb" type="radio"  name="group_units"  style="display:block; float:left;" value="english_gm"/>
+<label class="english_gm_rb" style="display:block; width:70px; float:left;"  for=visa>English (G / m)</label>
+
+
+</div>
+
+
+
+
+<div id="row3_row_b">
+
+
+<input class="metric_lh_rb" type="radio"  name="group_units"   value="metric_lh" style="display:block; float:left;"/>
+<label class="metric_lh_rb" style="display:block; width:70px; float:left;" for=amex>Metric (L / h)</label>
+
+
+
+<input class="metric_ls_rb" type="radio"  name="group_units" checked  value="metric_ls" style="display:block; float:left;"/>
+<label class="metric_ls_rb" style="display:block; width:70px; float:left;" for=amex>Metric (L / s)</label>
+
+
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+	<div id="row4">
+		
+		<div id="row4_col1">
+			<canvas id="canvas" width="520" height="520" style="float:left; background:#ggg; border:0px dashed #ccc; margin:0px;"></canvas>
+		</div>
+		<div id="row4_col2">
+			
+	<div id="results_header_div">
+
+	<div id="results_header" style="font-size:18px;"> <div class="header" style="font-size:18px; font-weight:bold;">Results</div><div id="">Manifold </div><div id="">Laterals </div></div>
+	<div id="results_header"> <div class="header">Max Flow</div><div id="man_max_flow" class="val">-------  </div><div class="val" id="lat_max_flow">-------  </div></div>
+	<div id="results_header"> <div class="header">Max Velocity</div><div id="man_max_vel" class="val">-------  </div><div class="val" id="lat_max_vel">-------  </div></div>
+	<div id="results_header"> <div class="header">Valve Pressure</div><div id="man_valve_press" class="val">-------  </div><div class="val" id="lat_valve_press">  </div></div>
+	<div id="results_header"> <div class="header">Min Pressure</div><div id="man_min_press" class="val">  </div><div class="val" id="lat_min_press">-------  </div></div>
+
+	</div>
+
+
+	</div>
+
+	</div>
+
+
+
+</div>
 
 </form>
 </html>
